@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>ch.epfl.scala</groupId>
+    <artifactId>sockets</artifactId>
+    <packaging>jar</packaging>
+    <description>IPC: Unix Domain Socket and Windows Named Pipes for Java</description>
+    <url>https://github.com/scalacenter/bloop</url>
+    <version>1.4.8</version>
+    <licenses>
+        <license>
+            <name>Apache-2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <name>sockets</name>
+    <inceptionYear>2017</inceptionYear>
+    <organization>
+        <name>ch.epfl.scala</name>
+        <url>https://github.com/scalacenter/bloop</url>
+    </organization>
+    <scm>
+        <url>https://github.com/scalacenter/bloop</url>
+        <connection>scm:git:git@github.com:scalacenter/bloop.git</connection>
+    </scm>
+    <developers>
+        <developer>
+            <id>jvican</id>
+            <name>Jorge Vicente Cantero</name>
+            <url>https://github.com/jvican</url>
+            <email>jorge@vican.me</email>
+        </developer>
+        <developer>
+            <id>Duhemm</id>
+            <name>Martin Duhem</name>
+            <url>https://github.com/Duhemm</url>
+            <email>martin.duhem@gmail.com</email>
+        </developer>
+    </developers>
+    <dependencies>
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna</artifactId>
+            <version>4.5.0</version>
+        </dependency>
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna-platform</artifactId>
+            <version>4.5.0</version>
+        </dependency>
+    </dependencies>
+</project>

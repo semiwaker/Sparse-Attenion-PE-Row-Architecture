@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.scalameta</groupId>
+    <artifactId>lsp4s_2.12</artifactId>
+    <packaging>jar</packaging>
+    <description>lsp4s</description>
+    <url>https://github.com/scalameta/lsp4s</url>
+    <version>0.2.0</version>
+    <licenses>
+        <license>
+            <name>Apache-2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <name>lsp4s</name>
+    <organization>
+        <name>org.scalameta</name>
+        <url>https://github.com/scalameta/lsp4s</url>
+    </organization>
+    <scm>
+        <url>https://github.com/scalameta/lsp4s</url>
+        <connection>scm:git:https://github.com/scalameta/lsp4s.git</connection>
+        <developerConnection>scm:git:git@github.com:scalameta/lsp4s.git</developerConnection>
+    </scm>
+    <developers>
+        <developer>
+            <id>laughedelic</id>
+            <name>Alexey Alekhin</name>
+            <email>laughedelic@gmail.com</email>
+            <url>https://github.com/laughedelic</url>
+        </developer>
+        <developer>
+            <id>gabro</id>
+            <name>Gabriele Petronella</name>
+            <email>gabriele@buildo.io</email>
+            <url>https://github.com/gabro</url>
+        </developer>
+        <developer>
+            <id>jvican</id>
+            <name>Jorge Vicente Cantero</name>
+            <email>jorgevc@fastmail.es</email>
+            <url>https://jvican.github.io/</url>
+        </developer>
+        <developer>
+            <id>olafurpg</id>
+            <name>Ólafur Páll Geirsson</name>
+            <email>olafurpg@gmail.com</email>
+            <url>https://geirsson.com</url>
+        </developer>
+    </developers>
+    <dependencies>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>2.12.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scalameta</groupId>
+            <artifactId>jsonrpc_2.12</artifactId>
+            <version>0.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.monix</groupId>
+            <artifactId>minitest_2.12</artifactId>
+            <version>2.1.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.beachape</groupId>
+            <artifactId>enumeratum_2.12</artifactId>
+            <version>1.5.13</version>
+        </dependency>
+        <dependency>
+            <groupId>com.beachape</groupId>
+            <artifactId>enumeratum-circe_2.12</artifactId>
+            <version>1.5.17</version>
+        </dependency>
+    </dependencies>
+</project>

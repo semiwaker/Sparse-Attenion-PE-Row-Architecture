@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>ch.epfl.scala</groupId>
+    <artifactId>nailgun-server</artifactId>
+    <packaging>jar</packaging>
+    <description>nailgun-server</description>
+    <url>https://github.com/scalacenter/bloop</url>
+    <version>ee3c4343</version>
+    <licenses>
+        <license>
+            <name>Apache-2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <name>nailgun-server</name>
+    <inceptionYear>2017</inceptionYear>
+    <organization>
+        <name>ch.epfl.scala</name>
+        <url>https://github.com/scalacenter/bloop</url>
+    </organization>
+    <scm>
+        <url>https://github.com/scalacenter/nailgun</url>
+        <connection>scm:git:https://github.com/scalacenter/nailgun.git</connection>
+        <developerConnection>scm:git:git@github.com:scalacenter/nailgun.git</developerConnection>
+    </scm>
+    <developers>
+        <developer>
+            <id>mlamb</id>
+            <name>Marty Lamb</name>
+            <email>mlabm@martiansoftware.com</email>
+            <url>https://github.com/mlamb</url>
+        </developer>
+        <developer>
+            <id>jvican</id>
+            <name>Jorge Vicente Cantero</name>
+            <email>jorge@vican.me</email>
+            <url>https://github.com/jvican</url>
+        </developer>
+        <developer>
+            <id>Duhemm</id>
+            <name>Martin Duhem</name>
+            <email>mnduhem@gmail.com</email>
+            <url>https://github.com/Duhemm</url>
+        </developer>
+    </developers>
+    <dependencies>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>2.12.4</version>
+        </dependency>
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna</artifactId>
+            <version>4.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna-platform</artifactId>
+            <version>4.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.26</version>
+        </dependency>
+    </dependencies>
+</project>

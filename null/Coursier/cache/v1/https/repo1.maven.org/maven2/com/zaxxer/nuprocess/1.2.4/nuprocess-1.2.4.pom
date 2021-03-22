@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- For release: mvn release:perform -Darguments=-Dgpg.passphrase=PASSPHRASE -->
+
+    <groupId>com.zaxxer</groupId>
+    <artifactId>nuprocess</artifactId>
+    <version>1.2.4</version>
+    <packaging>bundle</packaging>
+
+    <name>NuProcess</name>
+    <description>A low-overhead, non-blocking I/O, external Process execution implementation for Java.</description>
+    <url>https://github.com/brettwooldridge/NuProcess</url>
+
+    <organization>
+        <name>Zaxxer.com</name>
+        <url>https://github.com/brettwooldridge/NuProcess</url>
+    </organization>
+
+    <scm>
+        <connection>scm:git:git@github.com:brettwooldridge/NuProcess.git</connection>
+        <developerConnection>scm:git:git@github.com:brettwooldridge/NuProcess.git</developerConnection>
+        <url>git@github.com:brettwooldridge/NuProcess.git</url>
+    </scm>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Brett Wooldridge</name>
+            <email>brett.wooldridge@gmail.com</email>
+        </developer>
+        <developer>
+            <name>Ben Hamilton</name>
+        </developer>
+        <developer>
+            <name>Rich DiCroce</name>
+        </developer>
+        <developer>
+            <name>Chris Cladden</name>
+        </developer>
+    </developers>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna</artifactId>
+            <version>4.5.1</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-junit</artifactId>
+            <version>2.0.0.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <testSourceDirectory>src/test/java</testSourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+           <!-- Note: we might need this for removing side-effect on InterruptTest
+           <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-surefire-plugin</artifactId>
+               <version>2.18.1</version>
+               <configuration>
+                   <reuseForks>false</reuseForks>
+               </configuration>
+           </plugin>
+           -->
+           <plugin>
+               <groupId>org.apache.felix</groupId>
+               <artifactId>maven-bundle-plugin</artifactId>
+               <version>2.3.7</version>
+               <extensions>true</extensions>
+               <configuration>
+                   <instructions>
+                       <Bundle-Name>NuProcess</Bundle-Name>
+                       <Export-Package>
+							com.zaxxer.nuprocess;version="${project.version}", 
+							com.zaxxer.nuprocess.codec;version="${project.version}"
+					   </Export-Package>
+                       <Import-Package>com.sun.*</Import-Package>
+                       <Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
+                   </instructions>
+               </configuration>
+           </plugin>
+           <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-source-plugin</artifactId>
+               <version>2.2.1</version>
+               <configuration>
+                   <!-- outputDirectory>/absolute/path/to/the/output/directory</outputDirectory> <finalName>filename-of-generated-jar-file</finalName -->
+                    <attach>true</attach>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.2</version>
+                <configuration>
+                    <show>public</show>
+                    <sourceFileExcludes>
+                        <exclude>**/NuProcessFactory.java</exclude>
+                    </sourceFileExcludes>
+                    <excludePackageNames>com.zaxxer.nuprocess.internal,com.zaxxer.nuprocess.linux,com.zaxxer.nuprocess.osx,com.zaxxer.nuprocess.windows</excludePackageNames>
+                    <attach>true</attach>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>release-sign-artifacts</id>
+            <activation>
+                <property>
+                    <name>performRelease</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.4</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>
